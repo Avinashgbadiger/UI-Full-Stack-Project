@@ -1,33 +1,34 @@
- 
 import './App.css'
- 
+
 import ListEmployeeComponent from './assets/components/ListEmployeeComponent'
 import HeaderComponent from './assets/components/HeaderComponent'
 import FooterComponents from './assets/components/FooterComponents'
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import EmployeeComponent from './assets/components/EmployeeComponent'
 
 function App() {
-   
   return (
     <>
-     <BrowserRouter>
-      
-    <HeaderComponent />
-       <Routes>
-        {/* // http://localhost:5000/ */}
+      <BrowserRouter >
+        {/* Header Component */}
+        <HeaderComponent />
 
- {/* // http://localhost:5000/emp */}
+        {/* Define Routes */}
+        <Routes>
+          {/* Route for Add Employee */}
+          <Route path='/add-employee' element={<EmployeeComponent />} />
 
+          {/* Route for the List of Employees */}
+          <Route path='/' element={<ListEmployeeComponent />} />
 
-{/* //http://localhost:5000/add-employee */}
-<Route path='/add-employee' element={ <EmployeeComponent /> }></Route>
+          {/* You can add more routes here */}
 
-</Routes>
-       
-        <ListEmployeeComponent/>
+          <Route path='/employees' element={<ListEmployeeComponent />} />
+        </Routes>
+
+        {/* Footer Component */}
         <FooterComponents />
-        </BrowserRouter>
+      </BrowserRouter>
     </>
   )
 }

@@ -5,7 +5,7 @@ import EmployeeComponent from './EmployeeComponent';
 
 const ListEmployeeComponent = () => {
     const [employees, setEmployees] = useState([]);  // Correct variable name
-    const [showComponent, setShowComponent] = useState(false); 
+    
 
     const navigator=useNavigate();
 
@@ -29,18 +29,19 @@ const ListEmployeeComponent = () => {
 
     function addNewEmp(){
 
-       setShowComponent(true)
+    //    setShowComponent(true)
+    navigator('/add-employee');
     }
 
     return (
-        <div className="page-container">
+    //     <div className="page-container">
       
 
-      <div className="table-container">
+    //   <div className="table-container">
         <div className="container">
           <h2 className="text-center">List Of Employees</h2>
-          <button type="button" class="btn btn-dark mb-2" onClick={addNewEmp}>Add Employee</button>
-          {showComponent && <EmployeeComponent/>}
+          <button type="button" className="btn btn-dark mb-2" onClick={addNewEmp}>Add Employee</button>
+          {/* {showComponent && <EmployeeComponent/>} */}
           <table className="table table-striped table-bordered custom-table">
             <thead>
               <tr>
@@ -62,8 +63,8 @@ const ListEmployeeComponent = () => {
             </tbody>
           </table>
         </div>
-      </div>
-    </div>
+    //   </div>
+    // </div>
     );
 };
 

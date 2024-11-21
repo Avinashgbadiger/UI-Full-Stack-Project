@@ -24,6 +24,8 @@ function App() {
           {/* You can add more routes here */}
 
           <Route path='/employees' element={<ListEmployeeComponent />} />
+          {/* // http://localhost:5000/edit-employee/1 */}
+          <Route path='/edit-employee/:id' element={<EmployeeComponent />} />
         </Routes>
 
         {/* Footer Component */}

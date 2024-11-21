@@ -13,7 +13,7 @@ const ListEmployeeComponent = () => {
 
        const da = listEmployees().then(response => response.json())
        .then(data => {
-         console.log('h1',data)
+          console.log('h1',data)
          setEmployees(data);
          }).catch(error => console.error(error));
        

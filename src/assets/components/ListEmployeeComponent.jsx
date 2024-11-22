@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { listEmployees } from '../../services/EmployeeService'; 
+import { deleteEmp, listEmployees } from '../../services/EmployeeService'; 
 import { useNavigate } from 'react-router-dom';
 
 const ListEmployeeComponent = () => {
@@ -7,21 +7,35 @@ const ListEmployeeComponent = () => {
   const navigator = useNavigate();
 
   useEffect(() => {
-    listEmployees()
+    listOfAllEmp();
+  }, []);
+  
+function listOfAllEmp(){
+  listEmployees()
       .then((response) => response.json())
       .then((data) => {
         console.log('Employees data:', data);
         setEmployees(data);
       })
       .catch((error) => console.error('Error fetching employees:', error));
-  }, []);
-
+}
   function addNewEmp() {
     navigator('/add-employee');
   }
 
   function updateEmp(id) {
     navigator(`/edit-employee/${id}`);
+  }
+
+ function deleteEmpWithId(id){
+    console.log(id);
+    deleteEmp(id).then((response)=>{
+      listOfAllEmp();
+    }).catch((error)=>{
+      console.error(error);
+    })
+      
+    
   }
   
 
@@ -51,6 +65,9 @@ const ListEmployeeComponent = () => {
               <td>
                 <button className="btn btn-info" onClick={() => updateEmp(e.id)}>
                   Update
+                </button>
+                <button style={{marginLeft:'10px'}} className="btn btn-danger" onClick={() => deleteEmpWithId(e.id)}>
+                  Delete
                 </button>
               </td>
             </tr>

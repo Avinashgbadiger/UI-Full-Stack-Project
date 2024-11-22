@@ -32,3 +32,5 @@ export const getEmp = (empId) => {
 
     export const updateEmp=(empId,employee) => axios.put(REST_API_BASE_URL+'/'+empId,employee);
 
+    export const deleteEmp=(empId) => axios.delete(REST_API_BASE_URL+'/'+empId);
+

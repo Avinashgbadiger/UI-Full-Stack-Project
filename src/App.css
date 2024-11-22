@@ -1,56 +1,64 @@
-/* Full page container to handle overall layout */
-.page-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* Full viewport height */
-  }
-  
-  /* Navbar stays at the top */
-  .navbar {
-    z-index: 10; /* Ensures navbar stays on top */
-  }
-  
-  /* Container for the table and heading, positioning them slightly below the navbar */
-  .table-container {
-    display: flex;
-    flex: 1; /* Takes up remaining space */
-    justify-content: center; /* Horizontally center the content */
-    align-items: flex-start; /* Align from the top */
-    padding-top: 100px; /* Adjust this to position both heading and table a little below the top */
-  }
-  
-  /* Style the table with black borders */
-  .custom-table {
-    border: 2px solid black; /* Black border around the entire table */
-    width: 80%; /* Set a maximum width for the table */
-    margin-top: 20px; /* Space from the heading */
-  }
-  
-  .custom-table th, .custom-table td {
-    border: 1px solid black; /* Black border for table cells */
-    padding: 10px; /* Cell padding for better readability */
-    text-align: center; /* Center align text inside cells */
-  }
-  
-  .custom-table th {
-    background-color: #f8f9fa; /* Light background for the headers */
-    font-weight: bold; /* Bold text for headings */
-    color: black; /* Heading text color */
-  }
-  
-  .custom-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2; /* Light gray background for even rows */
-  }
-  
-  .custom-table tbody tr:hover {
-    background-color: #e9e9e9; /* Slightly darker background when hovering rows */
-  }
-  .footer{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: black;
-    text-align: center;
-    color: white;
-  }
+/* Header fixed at the top */
+nav.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;  /* Ensure the header is above other elements */
+  background-color: #333;  /* Keep the background color dark */
+}
+
+/* Footer fixed at the bottom */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333; /* Same dark background */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  z-index: 100; /* Ensure footer stays on top of content */
+}
+
+/* Main content section to scroll */
+.main-content {
+  margin-top: 60px; /* Space for header */
+  margin-bottom: 60px; /* Space for footer */
+  padding: 20px;
+  height: calc(100vh - 120px); /* Adjust for header + footer heights */
+  overflow-y: auto;
+}
+
+/* Ensure body has no margin and content doesn't overlap */
+body {
+  margin: 0;
+}
+
+/* Additional styles for the table and layout */
+.custom-table {
+  border: 2px solid black;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.custom-table th, .custom-table td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+.custom-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  color: black;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #e9e9e9;
+}

@@ -145,7 +145,7 @@ const EmployeeComponent = () => {
               <div className="form-group mb-2">
                 <label className="form-label">Email</label>
                 <input
-                  type="text"
+                  type="email"
                   placeholder="Enter Employee Email"
                   name="email"
                   value={email}
